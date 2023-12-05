@@ -10,27 +10,17 @@ import { IconStar, IconStartOutline } from '../../assets/icons'
 
 import { DEFAULT_THUMBNAIL } from '../../lib/constants'
 
-import './styles/BookDetailed.scss'
+import type { BookResponse } from '../../types/BooksResponse'
 
-interface Book {
-  id: string
-  volumeInfo: {
-    title: string
-    subtitle?: string
-    authors?: string[]
-    publisher?: string
-    publishedDate?: string
-    description?: string
-    imageLinks?: {
-      thumbnail?: string
-    }
-  }
-}
+import './styles/BookDetailed.scss'
 
 const BookDetailed: React.FC = () => {
   const { pathname } = useLocation()
   const { book, error, loading } = useFetchDataBook({ id: pathname })
-  const { storedValue: favoriteBooks, setValue: setFavoriteBooks } = useLocalStorage<Book[]>('favoriteBooks', [])!
+  const { storedValue: favoriteBooks, setValue: setFavoriteBooks } = useLocalStorage<BookResponse[]>(
+    'favoriteBooks',
+    []
+  )!
 
   if (!isEmpty(error)) {
     return <NotFound />

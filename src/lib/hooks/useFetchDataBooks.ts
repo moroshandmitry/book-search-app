@@ -3,11 +3,11 @@ import React from 'react'
 import { isEmpty } from '../helpers'
 import BooksApi from '../../api/books'
 import useDebounce from './useDebounce'
+import useLocalStorage from './useLocalStorage'
 
 import { DELAY } from '../constants'
 
 import type { BookResponse } from '../../types/BooksResponse'
-import useLocalStorage from './useLocalStorage'
 
 const useFetchDataBooks = () => {
   const [loading, setLoading] = React.useState<boolean>(false)
