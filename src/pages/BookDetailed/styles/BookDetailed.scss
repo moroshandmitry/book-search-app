@@ -1,0 +1,44 @@
+@import '../../../styles//index.scss';
+
+.book-detailed-container {
+  color: #333;
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 800px;
+  background-color: #f8f8f8;
+
+  .book-detailed-title {
+    @include flex-row-center-between;
+  }
+
+  h3 {
+    color: #555;
+  }
+
+  img {
+    margin: 10px 0px;
+    object-fit: contain;
+  }
+
+  p {
+    margin-bottom: 10px;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 15px;
+    max-width: 600px;
+
+    h1 {
+      font-size: 18px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    padding: 10px;
+    max-width: 100%;
+
+    h1 {
+      font-size: 16px;
+    }
+  }
+}

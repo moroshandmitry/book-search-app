@@ -1,0 +1,48 @@
+@import '../../../styles/vars';
+
+.books-container {
+  gap: 16px;
+  display: grid;
+  margin-top: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(calc(25% - 16px), 1fr));
+
+  @media (max-width: 768px) {
+    grid-template-columns: repeat(auto-fill, minmax(calc(50% - 16px), 1fr));
+
+    h3 {
+      font-size: 18px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+
+    h3 {
+      font-size: 18px;
+    }
+  }
+
+  .book {
+    padding: 8px;
+    border: none;
+    display: flex;
+    cursor: pointer;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: $color-light-yellow;
+
+    h3 {
+      color: $color-dark-gray;
+    }
+
+    img {
+      margin: 10px 0px;
+      object-fit: contain;
+    }
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
