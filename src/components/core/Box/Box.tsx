@@ -21,6 +21,8 @@ const Box: React.FC<React.PropsWithChildren<BoxProps>> = (props) => {
     flexDirection = 'column',
     alignContent,
     justifyContent,
+    className,
+    style,
   } = props
 
   const boxStyles: React.CSSProperties = {
@@ -41,9 +43,14 @@ const Box: React.FC<React.PropsWithChildren<BoxProps>> = (props) => {
     flexDirection,
     alignContent,
     justifyContent,
+    ...style,
   }
 
-  return <div style={boxStyles}>{children}</div>
+  return (
+    <div className={className} style={boxStyles}>
+      {children}
+    </div>
+  )
 }
 
 export default Box

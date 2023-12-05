@@ -1,5 +1,7 @@
 import React from 'react'
 
+import { Box } from '../../core'
+
 import './styles/Loader.scss'
 
 interface LoaderProps {
@@ -12,10 +14,10 @@ const Loader: React.FC<LoaderProps> = (props) => {
   return (
     <React.Fragment>
       {loading && (
-        <div className="loader-container">
-          <div className="loader-spinner"></div>
+        <Box className="loader-container">
+          <Box className="loader-spinner" />
           <p className="loader-text">Loading...</p>
-        </div>
+        </Box>
       )}
     </React.Fragment>
   )

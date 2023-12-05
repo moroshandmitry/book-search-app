@@ -3,7 +3,9 @@ type FlexProperties = Pick<
   'flexDirection' | 'justifyContent' | 'alignItems' | 'flexWrap' | 'alignSelf' | 'alignContent'
 >
 
-export interface BoxProps extends FlexProperties {
+export interface BoxProps extends FlexProperties, React.HTMLAttributes<HTMLDivElement> {
+  style?: React.CSSProperties
+  className?: string
   margin?: number
   mt?: number
   mr?: number
