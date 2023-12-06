@@ -5,7 +5,7 @@ import { useDefaultProps } from '../hooks'
 import type { ButtonProps } from './Button.types'
 
 const Button: React.FC<React.PropsWithChildren<ButtonProps>> = (props) => {
-  const { children, className, customStyles, attrs } = useDefaultProps(props)
+  const { children, customStyles, attrs } = useDefaultProps(props)
 
   const defaultStyles: React.CSSProperties = {
     border: 'none',
@@ -19,7 +19,7 @@ const Button: React.FC<React.PropsWithChildren<ButtonProps>> = (props) => {
   }
 
   return (
-    <button className={className} style={combinedStyles} {...(attrs as React.ButtonHTMLAttributes<HTMLButtonElement>)}>
+    <button style={combinedStyles} {...(attrs as React.ButtonHTMLAttributes<HTMLButtonElement>)}>
       {children}
     </button>
   )

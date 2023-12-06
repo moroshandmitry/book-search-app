@@ -40,9 +40,7 @@ const useDefaultProps = (props: Props) => {
     outline,
     cursor,
     transition,
-    style,
     children,
-    className,
     ...attrs
   } = props
 
@@ -113,13 +111,11 @@ const useDefaultProps = (props: Props) => {
     ...flexStyles,
     ...positionStyles,
     ...expandable,
-    ...style,
   })
 
   return {
     attrs,
     children,
-    className,
     customStyles,
   }
 }

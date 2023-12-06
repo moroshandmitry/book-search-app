@@ -7,8 +7,9 @@ import BookListInput from './parts/BookList.Input'
 import BooksListContent from './parts/BookList.Content'
 
 const BookList: React.FC = () => {
-  const { books, loading, storedValue, handleSearchBooks } = useFetchDataBooks()
+  const { books, storedValue, handleSearchBooks } = useFetchDataBooks()
 
+  const loading = true
   return (
     <React.Fragment>
       <BookListInput value={storedValue || ''} onChange={handleSearchBooks} />

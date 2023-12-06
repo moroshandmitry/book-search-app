@@ -1,7 +1,4 @@
 export type Styles = {
-  className?: string
-  style?: React.CSSProperties
-
   p?: number
   pt?: number
   pr?: number
