@@ -31,7 +31,6 @@ export type Styles = {
   left?: React.CSSProperties['left']
 
   order?: React.CSSProperties['order']
-  display?: React.CSSProperties['display']
   flexWrap?: React.CSSProperties['flexWrap']
   alignSelf?: React.CSSProperties['alignSelf']
   flexGrow?: React.CSSProperties['flexGrow']

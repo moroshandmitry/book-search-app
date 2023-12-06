@@ -1,4 +1,6 @@
-import { removeUndefinedStyles } from '../../../lib/helpers'
+import React from 'react'
+
+import { toPixelString, removeUndefinedStyles } from '../../../lib/helpers'
 
 import type { Styles } from './types'
 
@@ -28,7 +30,6 @@ const useDefaultProps = (props: Props) => {
     bottom,
     left,
     order,
-    display,
     flexGrow,
     flexWrap,
     alignSelf,
@@ -46,30 +47,37 @@ const useDefaultProps = (props: Props) => {
   } = props
 
   const paddingStyles = {
-    padding: p ? `${p}px` : undefined,
-    paddingTop: pt ? `${pt}px` : undefined,
-    paddingRight: `${pr}px`,
-    paddingBottom: `${pb}px`,
-    paddingLeft: `${pl}px`,
+    padding: toPixelString(p),
+    paddingTop: toPixelString(pt),
+    paddingRight: toPixelString(pr),
+    paddingBottom: toPixelString(pb),
+    paddingLeft: toPixelString(pl),
   }
 
   const marginStyles = {
-    margin: `${m}px`,
-    marginTop: `${mt}px`,
-    marginRight: `${mr}px`,
-    marginBottom: `${mb}px`,
-    marginLeft: `${ml}px`,
+    margin: toPixelString(m),
+    marginTop: toPixelString(mt),
+    marginRight: toPixelString(mr),
+    marginBottom: toPixelString(mb),
+    marginLeft: toPixelString(ml),
   }
 
   const sizeStyles = {
-    width: `${w}px`,
-    height: `${h}px`,
+    width: toPixelString(w),
+    height: toPixelString(h),
   }
 
   const borderStyles = {
     border,
-    borderRadius: `${br}px`,
+    borderRadius: toPixelString(br),
   }
+
+  const commonStyles = removeUndefinedStyles({
+    ...marginStyles,
+    ...paddingStyles,
+    ...sizeStyles,
+    ...borderStyles,
+  })
 
   const positionStyles = {
     top,
@@ -81,7 +89,6 @@ const useDefaultProps = (props: Props) => {
 
   const flexStyles = {
     order,
-    display,
     flexGrow,
     flexWrap,
     alignSelf,
@@ -92,19 +99,15 @@ const useDefaultProps = (props: Props) => {
   }
 
   const customStyles: React.CSSProperties = removeUndefinedStyles({
-    ...marginStyles,
-    ...paddingStyles,
-    ...sizeStyles,
-    ...borderStyles,
+    ...commonStyles,
     ...flexStyles,
     ...positionStyles,
-    display: 'flex',
-    outline,
-    cursor,
-    transition,
     zIndex,
+    cursor,
+    outline,
+    transition,
     background: bg,
-    boxSizing: 'border-box',
+    display: 'flex',
     ...style,
   })
 

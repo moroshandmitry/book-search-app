@@ -11,15 +11,10 @@ const Button: React.FC<React.PropsWithChildren<ButtonProps>> = (props) => {
     border: 'none',
     outline: 'none',
     cursor: 'pointer',
-    transition: 'background-color 0.3s ease',
   }
 
   const combinedStyles: React.CSSProperties = {
     ...defaultStyles,
-    border: customStyles.border ? customStyles.border : defaultStyles.border,
-    outline: customStyles.outline ?? defaultStyles.outline,
-    cursor: customStyles.cursor ?? defaultStyles.cursor,
-    transition: customStyles.transition ?? defaultStyles.transition,
     ...customStyles,
   }
 

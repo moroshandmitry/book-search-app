@@ -2,6 +2,10 @@ export const isEmpty = (obj: any): boolean => {
   return [Object, Array].includes((obj || {}).constructor) && !Object.entries(obj || {}).length
 }
 
+export const toPixelString = (value: number | undefined): string | undefined => {
+  return value !== undefined ? `${value}px` : undefined
+}
+
 const convertToCSSValue = (value?: number | string): string | undefined => {
   if (value === undefined || value === 'undefinedpx') {
     return undefined
