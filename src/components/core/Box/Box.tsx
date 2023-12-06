@@ -1,53 +1,14 @@
 import React from 'react'
 
+import { useDefaultProps } from '../hooks'
+
 import type { BoxProps } from './Box.types'
 
 const Box: React.FC<React.PropsWithChildren<BoxProps>> = (props) => {
-  const {
-    children,
-    padding,
-    pt,
-    pr,
-    pb,
-    pl,
-    margin,
-    mt,
-    mr,
-    mb,
-    ml,
-    flexWrap,
-    alignSelf,
-    alignItems,
-    flexDirection = 'column',
-    alignContent,
-    justifyContent,
-    className,
-    style,
-  } = props
-
-  const boxStyles: React.CSSProperties = {
-    padding,
-    paddingTop: pt,
-    paddingRight: pr,
-    paddingBottom: pb,
-    paddingLeft: pl,
-    margin,
-    marginTop: mt,
-    marginRight: mr,
-    marginBottom: mb,
-    marginLeft: ml,
-    display: 'flex',
-    flexWrap,
-    alignSelf,
-    alignItems,
-    flexDirection,
-    alignContent,
-    justifyContent,
-    ...style,
-  }
+  const { children, className, customStyles, attrs } = useDefaultProps(props)
 
   return (
-    <div className={className} style={boxStyles}>
+    <div className={className} style={customStyles} {...(attrs as React.HTMLAttributes<HTMLDivElement>)}>
       {children}
     </div>
   )
