@@ -1,3 +1,5 @@
+import { removeUndefinedStyles } from '../../../lib/helpers'
+
 import type { Styles } from './types'
 
 interface Props extends React.PropsWithChildren<Styles> {}
@@ -44,8 +46,8 @@ const useDefaultProps = (props: Props) => {
   } = props
 
   const paddingStyles = {
-    padding: `${p}px`,
-    paddingTop: `${pt}px`,
+    padding: p ? `${p}px` : undefined,
+    paddingTop: pt ? `${pt}px` : undefined,
     paddingRight: `${pr}px`,
     paddingBottom: `${pb}px`,
     paddingLeft: `${pl}px`,
@@ -89,7 +91,7 @@ const useDefaultProps = (props: Props) => {
     justifyContent,
   }
 
-  const customStyles: React.CSSProperties = {
+  const customStyles: React.CSSProperties = removeUndefinedStyles({
     ...marginStyles,
     ...paddingStyles,
     ...sizeStyles,
@@ -104,22 +106,13 @@ const useDefaultProps = (props: Props) => {
     background: bg,
     boxSizing: 'border-box',
     ...style,
-  }
-
-  const removeUndefined = (obj: Record<string, any>) => {
-    Object.keys(obj).forEach((key) => {
-      if (obj[key] === undefined || obj[key] === 'undefinedpx') {
-        delete obj[key]
-      }
-    })
-    return obj
-  }
+  })
 
   return {
     attrs,
     children,
     className,
-    customStyles: removeUndefined(customStyles),
+    customStyles,
   }
 }
 
