@@ -6,13 +6,9 @@ export const toPixelString = (value: number | undefined): string | undefined => 
   return value !== undefined ? `${value}px` : undefined
 }
 
-const convertToCSSValue = (value?: number | string): string | undefined => {
+const convertToCSSValue = (value?: number | string): number | string | undefined => {
   if (value === undefined || value === 'undefinedpx') {
     return undefined
-  }
-
-  if (!isNaN(Number(value))) {
-    return `${Number(value)}px`
   }
 
   return String(value)

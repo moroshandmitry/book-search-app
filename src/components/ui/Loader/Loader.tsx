@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Box } from '../../core'
+import { Box, Typography } from '../../core'
 
 import './styles/Loader.scss'
 
@@ -14,9 +14,11 @@ const Loader: React.FC<LoaderProps> = (props) => {
   return (
     <React.Fragment>
       {loading && (
-        <Box className="loader-container">
+        <Box alignItems="center" justifyContent="center" flexWrap="wrap" flexGrow={1}>
           <Box className="loader-spinner" />
-          <p className="loader-text">Loading...</p>
+          <Typography component="p" variant="p" mt={10} fontWeight={700} color="red">
+            Loading...
+          </Typography>
         </Box>
       )}
     </React.Fragment>

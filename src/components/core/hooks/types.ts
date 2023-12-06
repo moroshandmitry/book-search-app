@@ -39,4 +39,9 @@ export type Styles = {
   outline?: React.CSSProperties['outline']
   cursor?: React.CSSProperties['cursor']
   transition?: React.CSSProperties['transition']
+
+  color?: React.CSSProperties['color']
+  fontSize?: number
+  fontWeight?: React.CSSProperties['fontWeight']
+  fontFamily?: React.CSSProperties['fontFamily']
 }

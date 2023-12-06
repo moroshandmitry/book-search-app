@@ -40,6 +40,10 @@ const useDefaultProps = (props: Props) => {
     outline,
     cursor,
     transition,
+    color,
+    fontSize,
+    fontFamily,
+    fontWeight,
     children,
     ...attrs
   } = props
@@ -70,11 +74,19 @@ const useDefaultProps = (props: Props) => {
     borderRadius: toPixelString(br),
   }
 
+  const fontStyles = {
+    color,
+    fontFamily,
+    fontWeight,
+    fontSize: toPixelString(fontSize),
+  }
+
   const commonStyles = removeUndefinedStyles({
     ...marginStyles,
     ...paddingStyles,
     ...sizeStyles,
     ...borderStyles,
+    ...fontStyles,
   })
 
   const positionStyles = {
