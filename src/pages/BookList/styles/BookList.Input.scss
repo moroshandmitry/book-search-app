@@ -1,9 +1,0 @@
-@import '../../../styles/index.scss';
-
-.search-books-container {
-  height: 50px;
-
-  @include flex-column-center;
-
-  background-color: $color-light-blue;
-}

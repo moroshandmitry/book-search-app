@@ -1,7 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 import { isEmpty } from '../../../lib/helpers'
+
+import { Link } from 'react-router-dom'
+import { Box, Typography } from '../../../components/core'
+
 import { DEFAULT_THUMBNAIL } from '../../../lib/constants'
 
 import type { BookResponse } from '../../../types/BooksResponse'
@@ -12,7 +15,9 @@ interface BooksListContentProps {
   books: BookResponse[]
 }
 
-const BooksListContent: React.FC<BooksListContentProps> = (props) => {
+// TODO: <Grid className="books-container"> a instanceof <div className="books-container">
+
+const BookListContent: React.FC<BooksListContentProps> = (props) => {
   const { books } = props
 
   return (
@@ -28,11 +33,13 @@ const BooksListContent: React.FC<BooksListContentProps> = (props) => {
 
             return (
               <Link key={id} to={id} className="book">
-                <h3>{title}</h3>
+                <Typography variant="h3" component="h3">
+                  {title}
+                </Typography>
                 <img alt={`Cover of ${title} book`} src={imageLinks?.thumbnail ?? DEFAULT_THUMBNAIL} />
-                {subtitle && <p>{subtitle}</p>}
+                {subtitle && <Typography variant="p">{subtitle}</Typography>}
                 {searchInfo?.textSnippet && (
-                  <div
+                  <Box
                     style={{
                       textAlign: 'left',
                     }}
@@ -50,4 +57,4 @@ const BooksListContent: React.FC<BooksListContentProps> = (props) => {
   )
 }
 
-export default BooksListContent
+export default BookListContent

@@ -2,21 +2,24 @@ import React from 'react'
 
 import { isEmpty } from '../../../lib/helpers'
 
+import { Typography } from '../../core'
+
 import './styles/Empty.scss'
 
 interface EmptyProps {
   data: unknown[]
+  title?: string
   loading: boolean
 }
 
-const Empty: React.FC<EmptyProps> = (props) => {
-  const { data, loading } = props
+const Empty: React.FC<React.PropsWithChildren<EmptyProps>> = (props) => {
+  const { title, children, data, loading } = props
 
   if (isEmpty(data) && !loading) {
     return (
-      <div className="empty-container">
-        <p className="empty-text">Enter text in the input to search for books.</p>
-      </div>
+      <Typography variant="p" fontSize={24} flexGrow={1} alignItems="center" justifyContent="center">
+        {title ?? children}
+      </Typography>
     )
   }
 

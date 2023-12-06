@@ -1,12 +1,5 @@
 @import '../../../../styles/index.scss';
 
-.empty-container {
-  flex-grow: 1;
-  @include flex-column-center;
-}
-
 .empty-text {
-  font-size: 24px;
-  text-align: center;
   color: $color-dark-gray;
 }

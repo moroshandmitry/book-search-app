@@ -17,7 +17,7 @@ export type Styles = {
   br?: number
   border?: React.CSSProperties['border']
 
-  bg?: string
+  bg?: React.CSSProperties['background']
 
   zIndex?: number
 
@@ -42,6 +42,8 @@ export type Styles = {
 
   color?: React.CSSProperties['color']
   fontSize?: number
+  textAlign?: React.CSSProperties['textAlign']
+  lineHeight?: React.CSSProperties['lineHeight']
   fontWeight?: React.CSSProperties['fontWeight']
   fontFamily?: React.CSSProperties['fontFamily']
 }

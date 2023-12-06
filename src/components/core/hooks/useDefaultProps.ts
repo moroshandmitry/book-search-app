@@ -44,6 +44,8 @@ const useDefaultProps = (props: Props) => {
     fontSize,
     fontFamily,
     fontWeight,
+    textAlign,
+    lineHeight,
     children,
     ...attrs
   } = props
@@ -76,6 +78,8 @@ const useDefaultProps = (props: Props) => {
 
   const fontStyles = {
     color,
+    textAlign,
+    lineHeight,
     fontFamily,
     fontWeight,
     fontSize: toPixelString(fontSize),

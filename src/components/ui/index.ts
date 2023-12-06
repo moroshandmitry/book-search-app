@@ -1,5 +1,5 @@
 export { default as Empty } from './Empty/Empty'
-export { default as Input } from './Input/Input'
+export { default as Input } from '../core/Input/Input'
 export { default as Layout } from './Layout/Layout'
 export { default as Header } from './Header/Header'
 export { default as Navbar } from './Navbar/Navbar'

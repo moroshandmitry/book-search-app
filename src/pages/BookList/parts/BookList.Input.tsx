@@ -2,9 +2,7 @@ import React from 'react'
 
 import { useLocation } from 'react-router-dom'
 
-import { Input } from '../../../components/ui'
-
-import '../styles/BookList.Input.scss'
+import { Box, Input } from '../../../components/core'
 
 interface BookListInputProps {
   value: string
@@ -20,9 +18,9 @@ const BookListInput: React.FC<BookListInputProps> = (props) => {
   return (
     <React.Fragment>
       {shouldShowInput && (
-        <div className="search-books-container">
-          <Input type="text" value={value} className="search-books" placeholder="Search books..." onChange={onChange} />
-        </div>
+        <Box h={50} alignItems="center" justifyContent="center" bg="#93c5fd">
+          <Input type="text" placeholder="Search books..." value={value} onChange={onChange} />
+        </Box>
       )}
     </React.Fragment>
   )

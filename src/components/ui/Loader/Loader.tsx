@@ -16,7 +16,7 @@ const Loader: React.FC<LoaderProps> = (props) => {
       {loading && (
         <Box alignItems="center" justifyContent="center" flexWrap="wrap" flexGrow={1}>
           <Box className="loader-spinner" />
-          <Typography component="p" variant="p" mt={10} fontWeight={700} color="red">
+          <Typography variant="p" mt={10} fontWeight={700} color="red">
             Loading...
           </Typography>
         </Box>
