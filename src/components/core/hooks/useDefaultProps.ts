@@ -108,6 +108,7 @@ const useDefaultProps = (props: Props) => {
     transition,
     background: bg,
     display: 'flex',
+    flexDirection: flexDirection ?? 'column',
     ...style,
   })
 
