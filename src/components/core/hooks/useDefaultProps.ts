@@ -98,17 +98,21 @@ const useDefaultProps = (props: Props) => {
     justifyContent,
   }
 
-  const customStyles: React.CSSProperties = removeUndefinedStyles({
-    ...commonStyles,
-    ...flexStyles,
-    ...positionStyles,
+  const expandable = {
+    display: 'flex',
+    flexDirection: flexDirection ?? 'column',
     zIndex,
     cursor,
     outline,
     transition,
     background: bg,
-    display: 'flex',
-    flexDirection: flexDirection ?? 'column',
+  }
+
+  const customStyles: React.CSSProperties = removeUndefinedStyles({
+    ...commonStyles,
+    ...flexStyles,
+    ...positionStyles,
+    ...expandable,
     ...style,
   })
 
