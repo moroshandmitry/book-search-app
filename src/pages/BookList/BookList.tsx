@@ -6,11 +6,11 @@ import * as Book from './parts'
 import { Empty, Loader } from '../../components/ui'
 
 const BookList: React.FC = () => {
-  const { books, loading, storedValue, handleSearchBooks } = useFetchDataBooks()
+  const { books, loading, storedValue, handleClearBooks, handleSearchBooks } = useFetchDataBooks()
 
   return (
     <React.Fragment>
-      <Book.ListInput value={storedValue || ''} onChange={handleSearchBooks} />
+      <Book.ListInput value={storedValue || ''} onChange={handleSearchBooks} onClear={handleClearBooks} />
       <Book.ListContent books={books} />
       <Loader loading={loading} />
       <Empty title="Enter text in the input to search for books." data={books} loading={loading} />

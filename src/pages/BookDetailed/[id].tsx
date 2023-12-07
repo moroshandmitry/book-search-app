@@ -15,8 +15,8 @@ import type { BookResponse } from '../../types/BooksResponse'
 import './styles/BookDetailed.scss'
 
 const BookDetailed: React.FC = () => {
-  const { pathname } = useLocation()
-  const { book, error, loading } = useFetchDataBook({ id: pathname })
+  const { pathname: id } = useLocation()
+  const { book, error, loading } = useFetchDataBook({ id })
   const { storedValue: favoriteBooks, setValue: setFavoriteBooks } = useLocalStorage<BookResponse[]>(
     'favoriteBooks',
     []
@@ -47,7 +47,7 @@ const BookDetailed: React.FC = () => {
       {loading && <Loader loading={loading} />}
 
       {!loading && book && (
-        <>
+        <React.Fragment>
           <div className="book-detailed-title">
             <h1>
               <i>{book?.volumeInfo?.title}</i>
@@ -87,7 +87,7 @@ const BookDetailed: React.FC = () => {
               <div dangerouslySetInnerHTML={{ __html: book.volumeInfo.description }} />
             </div>
           )}
-        </>
+        </React.Fragment>
       )}
     </div>
   )

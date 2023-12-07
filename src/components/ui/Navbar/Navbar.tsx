@@ -9,9 +9,11 @@ const Navbar: React.FC = () => {
     <nav className="navbar-container">
       <ul>
         {LINKS.map((link) => {
+          const { id, url, title } = link
+
           return (
-            <li key={link.id}>
-              <NavLink to={link.url}>{link.title}</NavLink>
+            <li key={id}>
+              <NavLink to={url}>{title}</NavLink>
             </li>
           )
         })}

@@ -8,6 +8,7 @@ type TypographyVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'span'
 
 interface TypographyElementProps<T extends React.ElementType> extends React.HTMLAttributes<HTMLElement> {
   component?: T
+  title?: string
   variant: TypographyVariant
   restProps?: React.HTMLAttributes<HTMLElement> & Styles
 }
@@ -29,7 +30,7 @@ const fontSizeMap: Record<TypographyVariant, string> = {
 }
 
 const Typography: React.FC<React.PropsWithChildren<TypographyProps>> = (props) => {
-  const { variant = 'p', component: Element = 'p', color, ...restProps } = props
+  const { variant = 'p', component: Element = 'p', color, title, ...restProps } = props
 
   const { children, customStyles, attrs } = useDefaultProps(restProps as React.HTMLAttributes<HTMLElement> & Styles)
 
@@ -46,7 +47,7 @@ const Typography: React.FC<React.PropsWithChildren<TypographyProps>> = (props) =
 
   return (
     <Element style={combinedStyles} {...attrs}>
-      {children}
+      {title ?? children}
     </Element>
   )
 }

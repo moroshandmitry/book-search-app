@@ -20,6 +20,8 @@ const useFetchDataBooks = () => {
     return setValue(e.target.value)
   }
 
+  const handleClearBooks = () => setValue('')
+
   const fetchDataBooks = React.useCallback(() => {
     if (debouncedSearchBooks.trim() === '') {
       return setBooks([])
@@ -53,6 +55,7 @@ const useFetchDataBooks = () => {
     storedValue,
     setValue,
     fetchDataBooks,
+    handleClearBooks,
     handleSearchBooks,
   }
 }

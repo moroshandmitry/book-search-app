@@ -1,5 +1,5 @@
 export { default as CorePage } from './CorePage/CorePage'
 export { default as BookList } from './BookList/BookList'
 export { default as NotFound } from './NotFound/NotFound'
-export { default as BookDetailed } from './BookDetailed/[slug]'
+export { default as BookDetailed } from './BookDetailed/[id]'
 export { default as BookFavorites } from './BookFavorites/BookFavorites'
